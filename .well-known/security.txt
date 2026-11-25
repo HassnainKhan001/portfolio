@@ -1,0 +1,24 @@
+# Security Policy — Muhammad Hasnain
+# https://securitytxt.org
+
+Contact: [ADD: mailto:security@yourdomain.com]
+Encryption: [ADD: https://yourdomain.com/pgp.html]
+Preferred-Languages: en
+Canonical: [ADD: https://yourdomain.com/.well-known/security.txt]
+Policy: [ADD: https://yourdomain.com/.well-known/security.txt]
+Expires: [ADD: ISO 8601 date one year from publication, e.g. 2027-11-24T00:00:00.000Z]
+
+# Disclosure policy
+#
+# For vulnerabilities discovered in my clients' systems during an authorized
+# engagement, findings are reported directly to the client under the signed
+# rules of engagement. This contact is for out-of-scope findings only.
+#
+# For third-party products:
+# - I follow coordinated disclosure.
+# - I notify the vendor privately and allow a reasonable remediation window
+#   (typically 90 days) before public disclosure.
+# - I do not publish details of client systems without explicit written consent.
+#
+# This policy does not constitute permission to test any system I operate.
+# Unauthorized testing is not authorized and will not be treated as research.

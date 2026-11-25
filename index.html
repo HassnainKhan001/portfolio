@@ -1,553 +1,809 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muhammad Hasnain | AI Security Master | LLM Red Teaming</title>
-  <meta name="description" content="Muhammad Hasnain — AI Security Master specializing in LLM Red Teaming, prompt injection, AI supply chain defense, and offensive security audits. Hire the expert companies trust." />
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='none' stroke='%2300FF41' stroke-width='1' stroke-dasharray='4,2' opacity='0.4'/%3E%3Ccircle cx='50' cy='50' r='38' fill='none' stroke='%2300FF41' stroke-width='4'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%2300FF41'%3E%3Canimate attributeName='opacity' values='1;0.4;1' dur='2s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="index.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Hasnain — Offensive AI Security Research</title>
+  <meta name="description" content="Muhammad Hasnain — offensive AI security researcher specializing in LLM red teaming, prompt injection, RAG pipeline security, agentic AI vulnerabilities, and model supply chain integrity.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://[ADD: your-domain.com]/">
+  <meta property="og:title" content="Muhammad Hasnain — Offensive AI Security">
+  <meta property="og:description" content="LLM red teaming, prompt injection, RAG security, agentic AI, model supply chain.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://[ADD: your-domain.com]/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230B0F14'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='bold' fill='%2322D3EE' text-anchor='middle'%3EMH%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
+<body>
 
-<body class="matrix-bg">
-
-  <!-- CRT Overlay -->
-  <div class="crt-overlay"></div>
-
-  <!-- Scanline -->
-  <div class="scanline"></div>
-
-  <!-- HUD Left Sidebar -->
-  <div class="hud-sidebar">
-    <span>SEC.SHIELD: ACTIVE</span>
-    <span>THREAT.LEVEL: HIGH</span>
-    <span>SYS.VERIFIED: YES</span>
-    <div class="hud-bars">
-      <div class="hud-bar" style="animation-delay:0s"></div>
-      <div class="hud-bar" style="animation-delay:0.3s"></div>
-      <div class="hud-bar" style="animation-delay:0.6s"></div>
-    </div>
-  </div>
-
-  <!-- HUD Radar -->
-  <div class="hud-radar">
-    <div class="hud-radar-inner">
-      <div class="hud-radar-dot"></div>
-      <div class="hud-radar-spin"></div>
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="top-nav">
+  <!-- ══════════════════════════════════════════════════════
+       NAVIGATION
+       ══════════════════════════════════════════════════════ -->
+  <nav class="top-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <div class="nav-logo-dot"></div>
-        <div class="nav-logo-text">MH.<span>SEC</span></div>
+      <a href="/" class="nav-logo" aria-label="Muhammad Hasnain — Home">
+        <div class="nav-logo-mark" aria-hidden="true">MH</div>
+        <span class="nav-logo-text">Muhammad <span>Hasnain</span></span>
       </a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active"><span class="nav-num">01</span>Home</a></li>
-        <li><a href="projects.html"><span class="nav-num">02</span>Projects</a></li>
-        <li><a href="services.html"><span class="nav-num">03</span>Services</a></li>
-        <li><a href="neural-net.html"><span class="nav-num">04</span>How It Works</a></li>
-        <li><a href="diagnostic.html"><span class="nav-num">05</span>AI Assistant</a></li>
-        <li><a href="contact.html"><span class="nav-num">06</span>Contact</a></li>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-      <div style="display:flex;align-items:center;gap:1.5rem;">
-        <div class="nav-info">
-          <span class="nav-info-top">AI Threat Intel</span>
-          <span class="nav-info-bottom">SYSTEM SECURE</span>
-        </div>
-        <button class="nav-terminal-btn" title="Terminal">
-          <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 0;">terminal</span>
-        </button>
-      </div>
-      <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
-        <span class="material-symbols-outlined">menu</span>
+
+      <a href="#contact" class="nav-cta">Request Assessment</a>
+
+      <button class="mobile-menu-btn"
+              aria-label="Open navigation menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M3 12h18M3 6h18M3 18h18" stroke-linecap="round"/>
+        </svg>
       </button>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="index.html">01 — Home</a>
-      <a href="projects.html">02 — Projects</a>
-      <a href="services.html">03 — Services</a>
-      <a href="neural-net.html">04 — How It Works</a>
-      <a href="diagnostic.html">05 — AI Assistant</a>
-      <a href="contact.html">06 — Contact</a>
+
+    <div class="mobile-menu" id="mobile-menu" role="menu">
+      <a href="#services" role="menuitem">Services</a>
+      <a href="#process" role="menuitem">Process</a>
+      <a href="research.html" role="menuitem">Research</a>
+      <a href="#about" role="menuitem">About</a>
+      <a href="#contact" role="menuitem">Contact</a>
     </div>
   </nav>
 
-  <!-- ── HERO SECTION ── -->
-  <section class="hero">
-    <div class="hero-bg" aria-hidden="true">
-      <div class="hero-ring hero-ring-lg"></div>
-      <div class="hero-ring hero-ring-md"></div>
-      <div class="hero-ring hero-ring-sm"></div>
-      <div class="hero-cross-v"></div>
-      <div class="hero-cross-h"></div>
-      <div class="hero-corner hero-corner-tl"></div>
-      <div class="hero-corner hero-corner-tr"></div>
-      <div class="hero-corner hero-corner-bl"></div>
-      <div class="hero-corner hero-corner-br"></div>
-    </div>
-
-    <div class="hero-content container">
-
-      <!-- Profile Image Frame (Circular Cyber HUD) -->
-      <div class="profile-container animate-fade-up">
-        <div class="profile-ring-outer"></div>
-        <div class="profile-ring-inner"></div>
-        <div class="profile-frame">
-          <div class="profile-scanline"></div>
-          <img src="profile.jpg" alt="Muhammad Hasnain — AI Security Master" class="profile-img" />
-          <div class="profile-overlay"></div>
-        </div>
-        <div class="profile-status-badge" title="OPERATIONAL // ACTIVE">
-          <span class="status-dot"></span>
-          <span class="status-text">ONLINE</span>
-        </div>
-      </div>
-
-      <!-- Name -->
-      <div class="profile-name animate-fade-up stagger-1">Muhammad Hasnain</div>
-
-      <!-- Hero Branding -->
-      <div class="hero-brand-block animate-fade-up stagger-1">
-        <span class="brand-system">MH.SEC</span>
-        <span class="brand-divider">//</span>
-        <span class="brand-operator">AI Security Master</span>
-      </div>
-
-      <!-- Designation Badge -->
-      <div class="designation-badge animate-fade-up stagger-1">
-        <span class="designation-label">SPECIALIZATION:</span>
-        <span class="designation-value">LLM Red Teaming</span>
-        <div class="designation-divider"></div>
-        <span class="designation-class">OFFENSIVE SECURITY</span>
-      </div>
-
-      <!-- Main Headline -->
-      <h1 class="hero-title animate-fade-up stagger-2">
-        AI
-        <span class="hero-title-accent glitch-text" data-text="SECURITY">SECURITY</span>
-      </h1>
-
-      <!-- Terminal Boot Log -->
-      <div class="boot-log animate-fade-up stagger-3">
-        <span class="log-line"><span class="log-caret">$</span><span class="log-ok">[INIT]</span> Loading AI Threat Database...</span>
-        <span class="log-line"><span class="log-caret">$</span><span class="log-ok">[OK]</span> OWASP LLM Top 10 — Loaded</span>
-        <span class="log-line"><span class="log-caret">$</span><span class="log-ok">[OK]</span> Red Team Toolkit — Active</span>
-        <span class="log-line"><span class="log-caret">$</span><span class="log-warn">[WARN]</span> Adversarial AI Detected in Environment</span>
-        <span class="log-line"><span class="log-caret">$</span><span class="log-ok">[SECURE]</span> Counter-measures engaged. Ready.<span class="cursor"></span></span>
-      </div>
-
-      <!-- Sub Headline -->
-      <p class="hero-subtitle animate-fade-up stagger-3">
-        I break AI systems before attackers do.<br>
-        LLM exploits. Prompt injection. Supply chain attacks. I find them all.
-      </p>
-
-      <!-- CTA Buttons -->
-      <div class="hero-ctas animate-fade-up stagger-4">
-        <a href="projects.html" class="btn-primary" id="hero-verify-btn">
-          <div class="corner-accent-tl"></div>
-          <div class="corner-accent-br"></div>
-          <span>Verify My Work</span>
-        </a>
-        <a href="contact.html" class="btn-secondary" id="hero-audit-btn">
-          <span class="pulse-dot-sm"></span>
-          Audit Your AI Now
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── TRUST & CREDENTIALS BAR ── -->
-  <div style="background:rgba(0,5,0,0.97); border-top:1px solid rgba(0,255,65,0.12); border-bottom:1px solid rgba(0,255,65,0.12); padding:16px 40px;">
-    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
-      <div style="display:flex; align-items:center; gap:10px;">
-        <div style="width:8px; height:8px; border-radius:50%; background:#00FF41; box-shadow:0 0 8px #00FF41; animation:pulse-green 2s infinite;"></div>
-        <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#00FF41; letter-spacing:0.25em; text-transform:uppercase;">Available for Engagements</span>
-      </div>
-      <div style="display:flex; align-items:center; gap:28px; flex-wrap:wrap;">
-        <div style="display:flex; align-items:center; gap:8px;">
-          <span style="font-size:13px;">🔒</span>
-          <span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:rgba(255,255,255,0.4); letter-spacing:0.15em; text-transform:uppercase;">NDA-Protected Audits</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:8px;">
-          <span style="font-size:13px;">⚡</span>
-          <span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:rgba(255,255,255,0.4); letter-spacing:0.15em; text-transform:uppercase;">48hr Response SLA</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:8px;">
-          <span style="font-size:13px;">🎯</span>
-          <span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:rgba(255,255,255,0.4); letter-spacing:0.15em; text-transform:uppercase;">OWASP LLM Top 10 Aligned</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:8px;">
-          <span style="font-size:13px;">🛡️</span>
-          <span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:rgba(255,255,255,0.4); letter-spacing:0.15em; text-transform:uppercase;">Zero-Trust Methodology</span>
-        </div>
-      </div>
-      <a href="contact.html" style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#00FF41; text-decoration:none; border:1px solid rgba(0,255,65,0.35); padding:5px 14px; letter-spacing:0.15em; transition:all 0.2s;" onmouseover="this.style.background='rgba(0,255,65,0.08)';this.style.boxShadow='0 0 12px rgba(0,255,65,0.2)'" onmouseout="this.style.background='transparent';this.style.boxShadow='none'">REQUEST AUDIT →</a>
-    </div>
+  <!-- Mobile sticky bottom CTA -->
+  <div class="mobile-cta" aria-hidden="true">
+    <a href="#contact" class="btn-primary" style="width:100%;justify-content:center;">Request Assessment</a>
   </div>
 
-  <!-- ── CORE COMPETENCIES SECTION ── -->
-  <section class="section-competencies" id="core">
-    <div class="container">
-      <div class="section-header animate-fade-up">
-        <div>
-          <div class="section-label">// Attack Surface Coverage</div>
-          <h2 class="section-title">How I Break — And Secure — AI</h2>
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════
+         §1 HERO
+         ══════════════════════════════════════════════════════ -->
+    <section id="hero" class="hero">
+      <div class="container">
+        <div class="hero-layout">
+
+          <!-- Left: Text content -->
+          <div class="hero-content animate-fade-up">
+
+            <div class="hero-eyebrow">
+              <div class="status-indicator">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span class="mono">[ADD: "Available for engagements" or "Currently fully booked — contact for waitlist"]</span>
+              </div>
+            </div>
+
+            <h1 class="hero-title">
+              Muhammad<br>
+              <span class="hero-title-accent">Hasnain</span>
+            </h1>
+
+            <span class="hero-role">Offensive AI Security Researcher</span>
+
+            <p class="hero-lead">
+              I test LLMs, RAG pipelines, agentic systems, and AI supply chains for exploitable vulnerabilities — and document findings in reports your engineering team can act on.
+            </p>
+
+            <div class="hero-ctas">
+              <a href="#contact" class="btn-primary">Request Assessment</a>
+              <a href="sample-report.html" class="btn-secondary">View Sample Report</a>
+            </div>
+
+            <div class="hero-credentials">
+              <div class="hero-credential-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" style="color:var(--clr-accent)"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer">OWASP LLM Top 10</a> aligned
+              </div>
+              <div class="hero-credential-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" style="color:var(--clr-accent)"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Written authorization required
+              </div>
+              <div class="hero-credential-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" style="color:var(--clr-accent)"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                NDA on first contact
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Profile photo -->
+          <div class="hero-photo animate-fade-in stagger-3">
+            <div class="profile-container">
+              <div class="profile-frame">
+                <img src="profile.jpg"
+                     alt="Muhammad Hasnain"
+                     class="profile-img"
+                     width="200" height="200"
+                     loading="eager">
+              </div>
+              <div class="profile-status-badge">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span class="mono">[ADD: status text]</span>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <p class="section-desc">
-          Built on <strong style="color:#fff;">5+ years of software engineering</strong>.<br>
-          I think like an attacker. I defend like an engineer.
-        </p>
       </div>
+    </section>
 
-      <div class="competency-grid">
-        <!-- Card 01 -->
-        <div class="competency-card hover-z-shift animate-fade-up stagger-1">
-          <div class="competency-num">01</div>
-          <div class="competency-icon">
-            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-          <h3 class="competency-title">Secure AI System Architecture</h3>
-          <p class="competency-desc">I design AI applications with a security-first mindset — preventing data leakage, enforcing RBAC, and threat-modeling every LLM wrapper and agent pipeline.</p>
-          <ul class="competency-list">
-            <li><span class="competency-bullet"></span>Threat modeling & RBAC enforcement</li>
-            <li><span class="competency-bullet"></span>Secure API gateway design</li>
-            <li><span class="competency-bullet"></span>Data leakage prevention in AI pipelines</li>
-          </ul>
-          <div class="competency-owasp">OWASP LLM01 · LLM02 · LLM06</div>
-        </div>
 
-        <!-- Card 02 -->
-        <div class="competency-card hover-z-shift animate-fade-up stagger-2">
-          <div class="competency-num">02</div>
-          <div class="competency-icon">
-            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-          <h3 class="competency-title">LLM Red Teaming & Vulnerability Auditing</h3>
-          <p class="competency-desc">I probe LLM applications and RAG pipelines for prompt injection, jailbreaking, training data extraction, and system-instruction bypass vulnerabilities.</p>
-          <ul class="competency-list">
-            <li><span class="competency-bullet"></span>Prompt injection & jailbreak testing</li>
-            <li><span class="competency-bullet"></span>RAG pipeline security audits</li>
-            <li><span class="competency-bullet"></span>Automated guardrail validation</li>
-          </ul>
-          <div class="competency-owasp">OWASP LLM01 · LLM07 · LLM09</div>
-        </div>
-
-        <!-- Card 03 -->
-        <div class="competency-card hover-z-shift animate-fade-up stagger-3">
-          <div class="competency-num">03</div>
-          <div class="competency-icon">
-            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-          <h3 class="competency-title">AI Supply Chain & Model Defense</h3>
-          <p class="competency-desc">I verify model weights (SafeTensors vs Pickle), audit training datasets for data poisoning, and protect AI pipelines from backdoor insertion and model hijacking.</p>
-          <ul class="competency-list">
-            <li><span class="competency-bullet"></span>Model weight & serialization verification</li>
-            <li><span class="competency-bullet"></span>Dataset poisoning detection</li>
-            <li><span class="competency-bullet"></span>Backdoor & dependency scanning</li>
-          </ul>
-          <div class="competency-owasp">OWASP LLM03 · LLM04 · LLM05</div>
-        </div>
-      </div>
+    <!-- ══════════════════════════════════════════════════════
+         §2 PROOF STRIP
+         ══════════════════════════════════════════════════════ -->
+    <div id="proof" class="proof-strip" aria-label="Methodology and standards">
+      <ul class="proof-list" role="list">
+        <li class="proof-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer">OWASP LLM Top 10</a>&nbsp;methodology
+        </li>
+        <li class="proof-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Written authorization before all testing
+        </li>
+        <li class="proof-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          NDA before engagement discussions
+        </li>
+        <li class="proof-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a href="/.well-known/security.txt">Responsible disclosure policy</a>
+        </li>
+        <li class="proof-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a href="[ADD: GitHub or publication URL]" target="_blank" rel="noopener noreferrer">[ADD: public research artifact title]</a>
+        </li>
+      </ul>
     </div>
-  </section>
 
-  <!-- ── WHY COMPANIES HIRE ME ── -->
-  <section style="padding:80px 40px; background:rgba(0,2,0,0.96); border-top:1px solid rgba(0,255,65,0.08);">
-    <div style="max-width:1100px; margin:0 auto;">
-      <div style="text-align:center; margin-bottom:60px;">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#00FF41; letter-spacing:0.35em; text-shadow:0 0 8px rgba(0,255,65,0.4); margin-bottom:16px;">// CLIENT INTELLIGENCE REPORTS</div>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(2rem,4vw,3rem); color:#fff; font-weight:700; margin-bottom:12px; text-transform:uppercase;">What Clients Say After I Breach Their AI</h2>
-        <p style="color:rgba(120,170,120,0.7); font-family:'JetBrains Mono',monospace; font-size:11px; max-width:500px; margin:0 auto; line-height:1.8; letter-spacing:0.05em; text-transform:uppercase;">Every engagement: signed NDA · structured audit report · clear remediation roadmap.</p>
-      </div>
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
 
-        <div class="testimonial-card">
-          <div>
-            <div class="testimonial-badge">AUDIT_VERIFIED ✓</div>
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-quote">&ldquo;Hasnain discovered a critical indirect prompt injection vulnerability in our RAG pipeline that we had completely missed. His developer background makes him think like an attacker — and defend like an engineer.&rdquo;</p>
+    <!-- ══════════════════════════════════════════════════════
+         §3 RISK — How AI systems actually get breached
+         ══════════════════════════════════════════════════════ -->
+    <section id="risk" class="section">
+      <div class="container">
+        <div class="animate-fade-up">
+          <div class="section-eyebrow">Attack surface</div>
+          <h2 class="section-title">How AI systems actually get breached</h2>
+          <p class="section-desc">
+            Documented attack classes, not theoretical scenarios. Each maps to the
+            <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer" style="color:var(--clr-accent);text-decoration:underline;text-underline-offset:2px;">OWASP LLM Top 10</a>.
+          </p>
+        </div>
+
+        <div class="risk-grid">
+
+          <div class="risk-card animate-fade-up stagger-1">
+            <div class="risk-num">OWASP LLM01</div>
+            <h3 class="risk-title">Direct Prompt Injection</h3>
+            <p class="risk-mechanism">Attacker-supplied text in user input overrides or appends to the model's system prompt, redirecting its behavior. No special access is required beyond the normal user interface of the application.</p>
+            <div class="risk-impact">
+              <span class="risk-impact-label">Impact —</span>
+              <span class="risk-impact-text">Exfiltration of system instructions, impersonation of authorized roles, generation of policy-violating content under the application's identity.</span>
+            </div>
           </div>
-          <div class="testimonial-footer">
-            <div class="testimonial-avatar">SR</div>
+
+          <div class="risk-card animate-fade-up stagger-2">
+            <div class="risk-num">OWASP LLM02</div>
+            <h3 class="risk-title">Indirect Prompt Injection</h3>
+            <p class="risk-mechanism">Adversarial instructions embedded in documents, emails, or web pages retrieved at inference time execute within the model's trust context — without any direct attacker interaction with your system.</p>
+            <div class="risk-impact">
+              <span class="risk-impact-label">Impact —</span>
+              <span class="risk-impact-text">Cross-user data leakage, privilege escalation in multi-tenant RAG applications, silent exfiltration of data from retrieved documents.</span>
+            </div>
+          </div>
+
+          <div class="risk-card animate-fade-up stagger-3">
+            <div class="risk-num">OWASP LLM06</div>
+            <h3 class="risk-title">Insecure Agentic Tool Use</h3>
+            <p class="risk-mechanism">An LLM agent granted tool-calling permissions executes attacker-influenced instructions without per-action authorization checks. The agent acts as an unwitting proxy for the attacker within your infrastructure.</p>
+            <div class="risk-impact">
+              <span class="risk-impact-label">Impact —</span>
+              <span class="risk-impact-text">Lateral movement across connected systems, irreversible API calls (data deletion, external data transfer) under the application's credentials.</span>
+            </div>
+          </div>
+
+          <div class="risk-card animate-fade-up stagger-4">
+            <div class="risk-num">OWASP LLM03 / LLM04</div>
+            <h3 class="risk-title">Model Supply Chain Compromise</h3>
+            <p class="risk-mechanism">Unsafe serialization formats (Pickle) or poisoned fine-tuning datasets introduce backdoor behavior before a model reaches production. The compromise occurs before deployment, inside the ML pipeline.</p>
+            <div class="risk-impact">
+              <span class="risk-impact-label">Impact —</span>
+              <span class="risk-impact-text">Persistent backdoors that survive model updates and standard pre-deployment checks; targeted behavioral triggers activated by specific inputs in production.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         §4 SERVICES — What I test
+         ══════════════════════════════════════════════════════ -->
+    <section id="services" class="section" style="background:var(--clr-surface);">
+      <div class="container">
+        <div class="section-header animate-fade-up">
+          <div>
+            <div class="section-eyebrow">Engagements</div>
+            <h2 class="section-title">What I test</h2>
+          </div>
+          <p class="section-header-note">All engagements include a written report with findings, reproduction steps, severity ratings, and remediation guidance.</p>
+        </div>
+
+        <div class="competency-grid">
+
+          <div class="competency-card card-accent-top animate-fade-up stagger-1">
+            <div class="competency-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v5c0 5-4 9.27-8 11-4-1.73-8-6-8-11V6l8-4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="competency-title">LLM Red Teaming &amp; Jailbreak Audit</h3>
+            <p class="competency-desc">Adversarial probing of LLM endpoints to identify prompt injection, goal hijacking, guardrail bypasses, and system instruction extraction vulnerabilities.</p>
+            <ul class="competency-list" aria-label="Scope includes">
+              <li><span class="dot" aria-hidden="true"></span>Direct and indirect prompt injection</li>
+              <li><span class="dot" aria-hidden="true"></span>System instruction exfiltration</li>
+              <li><span class="dot" aria-hidden="true"></span>Guardrail and safety filter bypass</li>
+              <li><span class="dot" aria-hidden="true"></span>Jailbreak technique enumeration</li>
+            </ul>
+            <div class="competency-ref">
+              Covers <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer">OWASP LLM01, LLM07, LLM09</a>
+            </div>
+          </div>
+
+          <div class="competency-card card-accent-top animate-fade-up stagger-2">
+            <div class="competency-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" stroke-linecap="round"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="competency-title">RAG Pipeline Vulnerability Audit</h3>
+            <p class="competency-desc">Assessment of vector databases, document ingestion pipelines, chunking strategies, and retrieval logic for injection, poisoning, and privilege escalation vulnerabilities.</p>
+            <ul class="competency-list" aria-label="Scope includes">
+              <li><span class="dot" aria-hidden="true"></span>Document payload poisoning</li>
+              <li><span class="dot" aria-hidden="true"></span>Vector DB privilege escalation</li>
+              <li><span class="dot" aria-hidden="true"></span>Context window overflow vectors</li>
+              <li><span class="dot" aria-hidden="true"></span>Cross-tenant data leakage paths</li>
+            </ul>
+            <div class="competency-ref">
+              Covers <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer">OWASP LLM02, LLM06, LLM08</a>
+            </div>
+          </div>
+
+          <div class="competency-card card-accent-top animate-fade-up stagger-3">
+            <div class="competency-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="competency-title">AI Supply Chain &amp; Model Integrity</h3>
+            <p class="competency-desc">Security analysis of model weights, serialization formats, training data integrity, and ML pipeline dependencies for backdoor insertion and compromise vectors.</p>
+            <ul class="competency-list" aria-label="Scope includes">
+              <li><span class="dot" aria-hidden="true"></span>Pickle vs. SafeTensors security analysis</li>
+              <li><span class="dot" aria-hidden="true"></span>Training dataset integrity checks</li>
+              <li><span class="dot" aria-hidden="true"></span>Open-source model dependency scanning</li>
+              <li><span class="dot" aria-hidden="true"></span>Backdoor and trigger detection</li>
+            </ul>
+            <div class="competency-ref">
+              Covers <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer">OWASP LLM03, LLM04, LLM05</a>
+            </div>
+          </div>
+
+          <div class="competency-card card-accent-top animate-fade-up stagger-4">
+            <div class="competency-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="competency-title">Agentic AI &amp; MCP Security Review</h3>
+            <p class="competency-desc">Security assessment of multi-agent systems, tool-calling pipelines, and MCP server configurations for privilege escalation, tool abuse, and cross-agent prompt injection.</p>
+            <ul class="competency-list" aria-label="Scope includes">
+              <li><span class="dot" aria-hidden="true"></span>Tool permission and scope analysis</li>
+              <li><span class="dot" aria-hidden="true"></span>Cross-agent prompt injection paths</li>
+              <li><span class="dot" aria-hidden="true"></span>MCP server trust boundary review</li>
+              <li><span class="dot" aria-hidden="true"></span>Lateral movement via agent tools</li>
+            </ul>
+            <div class="competency-ref">
+              Covers <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer">OWASP LLM06, LLM08</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         §5 PROCESS — How an engagement works
+         ══════════════════════════════════════════════════════ -->
+    <section id="process" class="section">
+      <div class="container">
+        <div class="section-header animate-fade-up">
+          <div>
+            <div class="section-eyebrow">Methodology</div>
+            <h2 class="section-title">How an engagement works</h2>
+          </div>
+          <p class="section-header-note">[ADD: typical timeline, e.g. "Most engagements run 1–2 weeks from scoping call to report delivery."]</p>
+        </div>
+
+        <div class="process-steps animate-fade-up">
+
+          <div class="process-step">
+            <div class="process-step-num">01</div>
             <div>
-              <strong class="testimonial-name">Sarah R.</strong>
-              <span class="testimonial-role">CTO, Enterprise AI Platform</span>
+              <div class="process-step-title">Scoping call</div>
+              <p class="process-step-desc">We define the target system, attack surface, testing window, rules of engagement, emergency stop procedures, and points of contact. Written authorization is issued before any testing begins.</p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-step-num">02</div>
+            <div>
+              <div class="process-step-title">Threat modeling</div>
+              <p class="process-step-desc">I map your system's data flows, trust boundaries, tool permissions, and integration points to identify the highest-probability attack paths specific to your stack — before active testing begins.</p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-step-num">03</div>
+            <div>
+              <div class="process-step-title">Adversarial testing</div>
+              <p class="process-step-desc">Systematic probing across the agreed scope: prompt injection variants, guardrail bypass techniques, RAG manipulation, agentic tool abuse, and supply chain analysis — all within the written authorization boundary.</p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-step-num">04</div>
+            <div>
+              <div class="process-step-title">Finding documentation</div>
+              <p class="process-step-desc">Each vulnerability is documented with exact reproduction steps, severity (OWASP LLM Top 10 reference), business impact analysis, and specific remediation guidance your engineering team can act on immediately.</p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-step-num">05</div>
+            <div>
+              <div class="process-step-title">Report delivery &amp; walkthrough</div>
+              <p class="process-step-desc">Full written report with executive summary and technical appendix. A one-hour walkthrough session is included to review findings with your team and answer questions about remediation priorities.</p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-step-num">06</div>
+            <div>
+              <div class="process-step-title">Remediation review (optional)</div>
+              <p class="process-step-desc">A follow-up assessment to verify that your fixes hold under the same attack conditions used to find the original vulnerabilities. Available as an add-on to any engagement.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         §6 RESEARCH — Selected research & writeups
+         ══════════════════════════════════════════════════════ -->
+    <section id="research" class="section" style="background:var(--clr-surface);">
+      <div class="container">
+        <div class="section-header animate-fade-up">
+          <div>
+            <div class="section-eyebrow">Published work</div>
+            <h2 class="section-title">Selected research &amp; writeups</h2>
+          </div>
+          <a href="research.html" class="btn-secondary" style="white-space:nowrap;flex-shrink:0;">View all research →</a>
+        </div>
+
+        <div class="research-list animate-fade-up">
+
+          <a href="[ADD: URL of writeup 1]" class="research-entry" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="research-entry-meta">
+                <span class="tag">Prompt Injection</span>
+                <span class="mono text-muted" style="font-size:var(--text-xs);">[ADD: Month Year]</span>
+              </div>
+              <div class="research-entry-title">[ADD: Title of writeup 1]</div>
+              <div class="research-entry-desc">[ADD: One-sentence summary of what this research demonstrates or found.]</div>
+            </div>
+            <svg class="research-entry-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+
+          <a href="[ADD: URL of writeup 2]" class="research-entry" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="research-entry-meta">
+                <span class="tag">RAG Security</span>
+                <span class="mono text-muted" style="font-size:var(--text-xs);">[ADD: Month Year]</span>
+              </div>
+              <div class="research-entry-title">[ADD: Title of writeup 2]</div>
+              <div class="research-entry-desc">[ADD: One-sentence summary.]</div>
+            </div>
+            <svg class="research-entry-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+
+          <a href="[ADD: URL of writeup 3]" class="research-entry" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="research-entry-meta">
+                <span class="tag">Agentic AI</span>
+                <span class="mono text-muted" style="font-size:var(--text-xs);">[ADD: Month Year]</span>
+              </div>
+              <div class="research-entry-title">[ADD: Title of writeup 3]</div>
+              <div class="research-entry-desc">[ADD: One-sentence summary.]</div>
+            </div>
+            <svg class="research-entry-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         §7 SAMPLE REPORT
+         ══════════════════════════════════════════════════════ -->
+    <section id="sample-report" class="section">
+      <div class="container">
+        <div class="animate-fade-up">
+          <div class="section-eyebrow">Deliverable</div>
+          <h2 class="section-title">What a report looks like</h2>
+          <p class="section-desc">An illustrative sample showing report structure, finding format, and remediation guidance. All targets and findings are fictional.</p>
+        </div>
+
+        <div class="report-preview animate-fade-up">
+          <div class="report-preview-banner" aria-label="Sample report notice">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Illustrative sample — not a real client engagement. All findings and targets are fictional.
+          </div>
+          <div class="report-preview-body">
+            <div class="report-preview-info">
+              <h3>LLM Security Assessment Report</h3>
+              <p>Shows the full report structure: executive summary, threat model, methodology, individual findings (each with severity, reproduction steps, business impact, and remediation), and appendices. Findings are formatted for both security teams and non-technical stakeholders.</p>
+              <div class="report-toc" aria-label="Report table of contents">
+                <div class="report-toc-item"><span class="dot" aria-hidden="true"></span> Executive Summary</div>
+                <div class="report-toc-item"><span class="dot" aria-hidden="true"></span> Scope &amp; Methodology</div>
+                <div class="report-toc-item"><span class="dot" aria-hidden="true"></span> Findings (severity-ordered)</div>
+                <div class="report-toc-item"><span class="dot" aria-hidden="true"></span> Remediation Roadmap</div>
+                <div class="report-toc-item"><span class="dot" aria-hidden="true"></span> Technical Appendix</div>
+              </div>
+              <div style="margin-top:var(--space-6);">
+                <a href="sample-report.html" class="btn-primary">View sample report</a>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="testimonial-card">
-          <div>
-            <div class="testimonial-badge">SECURITY_CLEARED ✓</div>
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-quote">&ldquo;He audited our AI chatbot for jailbreak vulnerabilities and added guardrail layers that blocked 99.7% of adversarial inputs. The remediation report was detailed, actionable, and delivered ahead of schedule.&rdquo;</p>
+
+    <!-- ══════════════════════════════════════════════════════
+         §8 TRUST — How I work safely
+         ══════════════════════════════════════════════════════ -->
+    <section id="trust" class="section" style="background:var(--clr-surface);">
+      <div class="container">
+        <div class="animate-fade-up">
+          <div class="section-eyebrow">Professional standards</div>
+          <h2 class="section-title">How I work safely</h2>
+          <p class="section-desc">These are operational commitments, not marketing copy. Every engagement follows this structure.</p>
+        </div>
+
+        <div class="trust-grid">
+
+          <div class="trust-item animate-fade-up stagger-1">
+            <svg class="trust-item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14,2 14,8 20,8" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="13" x2="8" y2="13" stroke-linecap="round"/><line x1="16" y1="17" x2="8" y2="17" stroke-linecap="round"/></svg>
+            <h3 class="trust-item-title">Written authorization</h3>
+            <p class="trust-item-desc">Testing begins only after written authorization is received and countersigned. No testing occurs on systems not explicitly listed in the authorization document.</p>
           </div>
-          <div class="testimonial-footer">
-            <div class="testimonial-avatar">DM</div>
-            <div>
-              <strong class="testimonial-name">David M.</strong>
-              <span class="testimonial-role">Founder, Cognitive AI Solutions</span>
+
+          <div class="trust-item animate-fade-up stagger-2">
+            <svg class="trust-item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12" stroke-linecap="round"/><line x1="12" y1="16" x2="12.01" y2="16" stroke-linecap="round" stroke-width="2"/></svg>
+            <h3 class="trust-item-title">Scope boundary enforcement</h3>
+            <p class="trust-item-desc">Testing is confined to the agreed target systems. Any out-of-scope system found to be vulnerable is documented and disclosed to you, not tested further without additional authorization.</p>
+          </div>
+
+          <div class="trust-item animate-fade-up stagger-3">
+            <svg class="trust-item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3 class="trust-item-title">Signed rules of engagement</h3>
+            <p class="trust-item-desc">A signed ROE document defines permitted techniques, testing windows, emergency stop procedures, and designated contacts before any work begins. Available for review before you commit.</p>
+          </div>
+
+          <div class="trust-item animate-fade-up stagger-4">
+            <svg class="trust-item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke-linecap="round"/></svg>
+            <h3 class="trust-item-title">NDA before discussions</h3>
+            <p class="trust-item-desc">A non-disclosure agreement is signed before any discussion of your systems, architecture, or business context. Available on request before the first scoping call.</p>
+          </div>
+
+          <div class="trust-item animate-fade-up stagger-5">
+            <svg class="trust-item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="3,6 5,6 21,6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2" stroke-linecap="round"/></svg>
+            <h3 class="trust-item-title">Data handling &amp; deletion</h3>
+            <p class="trust-item-desc">All data accessed during an engagement — logs, prompts, model responses — is stored only as needed to produce the report. At engagement close, all copies are deleted and confirmed in writing.</p>
+          </div>
+
+          <div class="trust-item animate-fade-up stagger-5">
+            <svg class="trust-item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3 class="trust-item-title">Responsible disclosure</h3>
+            <p class="trust-item-desc">Out-of-scope vulnerabilities in third-party products are reported to the vendor under coordinated disclosure — not publicly released during your engagement. See <a href="/.well-known/security.txt">security.txt</a>.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         §9 ABOUT
+         ══════════════════════════════════════════════════════ -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="animate-fade-up">
+          <div class="section-eyebrow">Background</div>
+          <h2 class="section-title">About</h2>
+        </div>
+
+        <div class="about-layout animate-fade-up">
+
+          <div class="about-bio">
+            <p>[ADD: 2–3 sentences describing your background — where you started (software engineering, security research), what turned your focus toward offensive AI security, and what you work on today. Write in first person. No invented credentials.]</p>
+            <p>My focus is the intersection of machine learning systems and adversarial security: how language models can be manipulated through their inputs, how retrieval systems can be poisoned at the document level, and how agentic architectures create new privilege escalation surfaces that traditional security tools do not cover.</p>
+            <p>I approach this as an engineer who tests offensively — building the same kinds of systems I audit means I understand not just that a vulnerability exists, but why it exists and what a realistic fix requires.</p>
+
+            <div class="about-focus">
+              <div class="about-focus-label">Research focus</div>
+              <div class="about-tags">
+                <span class="tag">LLM Red Teaming</span>
+                <span class="tag">Prompt Injection</span>
+                <span class="tag">RAG Security</span>
+                <span class="tag">Agentic AI</span>
+                <span class="tag">MCP Security</span>
+                <span class="tag">Model Supply Chain</span>
+                <span class="tag">Adversarial ML</span>
+              </div>
+            </div>
+
+            <div class="card" style="margin-top:var(--space-4);">
+              <div class="mono text-muted" style="font-size:var(--text-xs);margin-bottom:var(--space-3);">CREDENTIALS</div>
+              <p style="font-size:var(--text-sm);color:var(--clr-muted);line-height:1.75;">[ADD: list verifiable credentials — certifications with verification URL, CTF rankings with link, CVEs, conference talks with link. Remove this block entirely if none are ready to publish.]</p>
             </div>
           </div>
-        </div>
 
-        <div class="testimonial-card">
-          <div>
-            <div class="testimonial-badge">THREAT_MITIGATED ✓</div>
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-quote">&ldquo;Hasnain scanned our open-source model weights and found unsafe Pickle serialization that could have granted attackers arbitrary code execution. Fast, thorough, and absolutely professional.&rdquo;</p>
-          </div>
-          <div class="testimonial-footer">
-            <div class="testimonial-avatar">ER</div>
-            <div>
-              <strong class="testimonial-name">Elena R.</strong>
-              <span class="testimonial-role">Head of ML Security, VeloTech Inc.</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── STATS STRIP ── -->
-  <div class="stats-strip">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-value" id="stat-audits">15+</div>
-          <div class="stat-label">LLM Audits Completed</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-value" id="stat-vulns">200+</div>
-          <div class="stat-label">Vulnerabilities Found</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-value" id="stat-rate">99.7%</div>
-          <div class="stat-label">Exploit Block Rate</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-value" id="stat-exp">5+</div>
-          <div class="stat-label">Years Dev Experience</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── SKILLS / TECH STACK ── -->
-  <section class="skills-section" id="skills">
-    <div class="container">
-      <div class="section-header animate-fade-up">
-        <div>
-          <div class="section-label">// Offensive & Defensive Toolkit</div>
-          <h2 class="section-title">Technical Arsenal</h2>
-        </div>
-        <p class="section-desc">Mastery across the full attack & defense spectrum. Every tool battle-tested in real engagements.</p>
-      </div>
-      <div class="skills-grid">
-        <!-- Capability 1 -->
-        <div class="skill-card animate-fade-up stagger-1">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-            <span class="material-symbols-outlined" style="color: var(--green); font-size: 24px;">bug_report</span>
-            <span class="skill-tag">OFFENSIVE RESEARCH</span>
-          </div>
-          <h3>LLM Red Teaming & Jailbreaking</h3>
-          <p style="font-size: 12px; color: var(--on-surface-dim); line-height: 1.7; margin-top: 0.25rem;">Adversarial probing of inference endpoints, system prompt extraction, and automated jailbreak payload generation.</p>
-          <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(0,255,65,0.1); font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.7); display: flex; flex-direction: column; gap: 4px;">
-            <div><span style="color: var(--green);">TOOLCHAIN:</span> PyRIT · Garak · Inspect AI · Custom Fuzzers</div>
-            <div><span style="color: var(--green);">STANDARDS:</span> OWASP LLM01 · MITRE ATLAS</div>
-          </div>
-        </div>
-
-        <!-- Capability 2 -->
-        <div class="skill-card animate-fade-up stagger-2">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-            <span class="material-symbols-outlined" style="color: var(--green); font-size: 24px;">terminal</span>
-            <span class="skill-tag">ATTACK SURFACE</span>
-          </div>
-          <h3>Prompt Injection Auditing</h3>
-          <p style="font-size: 12px; color: var(--on-surface-dim); line-height: 1.7; margin-top: 0.25rem;">Targeted audit of direct and indirect prompt injection vectors in multi-modal inputs and autonomous AI agents.</p>
-          <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(0,255,65,0.1); font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.7); display: flex; flex-direction: column; gap: 4px;">
-            <div><span style="color: var(--green);">VECTORS:</span> Indirect Injection · Token Smuggling</div>
-            <div><span style="color: var(--green);">STANDARDS:</span> OWASP LLM01 · OWASP LLM02</div>
-          </div>
-        </div>
-
-        <!-- Capability 3 -->
-        <div class="skill-card animate-fade-up stagger-3">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-            <span class="material-symbols-outlined" style="color: var(--green); font-size: 24px;">shield</span>
-            <span class="skill-tag">SUPPLY CHAIN</span>
-          </div>
-          <h3>AI Supply Chain & Weight Defense</h3>
-          <p style="font-size: 12px; color: var(--on-surface-dim); line-height: 1.7; margin-top: 0.25rem;">Model weight deserialization analysis, training set backdoor scanning, and dependency risk verification.</p>
-          <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(0,255,65,0.1); font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.7); display: flex; flex-direction: column; gap: 4px;">
-            <div><span style="color: var(--green);">TOOLCHAIN:</span> SafeTensors · PickleScan · Weight Audits</div>
-            <div><span style="color: var(--green);">STANDARDS:</span> OWASP LLM03 · OWASP LLM05</div>
-          </div>
-        </div>
-
-        <!-- Capability 4 -->
-        <div class="skill-card animate-fade-up stagger-1">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-            <span class="material-symbols-outlined" style="color: var(--green); font-size: 24px;">database</span>
-            <span class="skill-tag">RETRIEVAL SECURITY</span>
-          </div>
-          <h3>RAG Pipeline Security</h3>
-          <p style="font-size: 12px; color: var(--on-surface-dim); line-height: 1.7; margin-top: 0.25rem;">Vector database access control testing, document authorization enforcement, and data exfiltration defense.</p>
-          <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(0,255,65,0.1); font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.7); display: flex; flex-direction: column; gap: 4px;">
-            <div><span style="color: var(--green);">TARGETS:</span> Pinecone · Qdrant · Milvus · LangChain</div>
-            <div><span style="color: var(--green);">STANDARDS:</span> OWASP LLM06 · OWASP LLM08</div>
-          </div>
-        </div>
-
-        <!-- Capability 5 -->
-        <div class="skill-card animate-fade-up stagger-2">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-            <span class="material-symbols-outlined" style="color: var(--green); font-size: 24px;">code</span>
-            <span class="skill-tag">SECURE DEV</span>
-          </div>
-          <h3>Backend & Security Engineering</h3>
-          <p style="font-size: 12px; color: var(--on-surface-dim); line-height: 1.7; margin-top: 0.25rem;">Production-ready API security, Async Python (FastAPI/Pydantic), sandboxed tool callers, and rate-limiting.</p>
-          <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(0,255,65,0.1); font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.7); display: flex; flex-direction: column; gap: 4px;">
-            <div><span style="color: var(--green);">STACK:</span> Python · FastAPI · Docker · Pydantic</div>
-            <div><span style="color: var(--green);">STANDARDS:</span> Zero-Trust · NIST SP 800-207</div>
-          </div>
-        </div>
-
-        <!-- Capability 6 -->
-        <div class="skill-card animate-fade-up stagger-3">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-            <span class="material-symbols-outlined" style="color: var(--green); font-size: 24px;">radar</span>
-            <span class="skill-tag">ADVANCED RESEARCH</span>
-          </div>
-          <h3>Adversarial ML & Safety Benchmarks</h3>
-          <p style="font-size: 12px; color: var(--on-surface-dim); line-height: 1.7; margin-top: 0.25rem;">Model inversion testing, membership inference research, and continuous safety benchmark evaluation.</p>
-          <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(0,255,65,0.1); font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.7); display: flex; flex-direction: column; gap: 4px;">
-            <div><span style="color: var(--green);">FRAMEWORKS:</span> ART · PyTorch Security · Safety Evals</div>
-            <div><span style="color: var(--green);">STANDARDS:</span> NIST AI RMF · ISO 42001</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CTA SECTION ── -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-inner glass-panel-elite">
-        <div class="cta-bg-line cta-bg-line-1"></div>
-        <div class="cta-bg-line cta-bg-line-2"></div>
-        <div class="cta-content">
-          <div class="section-label" style="justify-content:center;">// Is Your AI System Actually Secure?</div>
-          <h2 class="cta-title">Let Me <span>Break It</span> Before They Do</h2>
-          <p class="cta-desc">LLM-powered app. RAG pipeline. AI-integrated product. I will find the vulnerabilities that your team missed — with an ex-developer's precision and a hacker's mindset.</p>
-          <div style="display:flex; justify-content:center; gap:20px; margin:1.5rem 0; flex-wrap:wrap;">
-            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:rgba(120,170,120,0.7); display:flex; align-items:center; gap:6px; letter-spacing:0.1em; text-transform:uppercase;">🔒 All findings NDA-protected</span>
-            <span style="color:rgba(255,255,255,0.15);">|</span>
-            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:rgba(120,170,120,0.7); display:flex; align-items:center; gap:6px; letter-spacing:0.1em; text-transform:uppercase;">📋 Full audit report delivered</span>
-            <span style="color:rgba(255,255,255,0.15);">|</span>
-            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:rgba(120,170,120,0.7); display:flex; align-items:center; gap:6px; letter-spacing:0.1em; text-transform:uppercase;">⚡ 48-hour response SLA</span>
-          </div>
-          <div class="cta-buttons">
-            <a href="contact.html" class="btn-primary" id="cta-audit-btn">
-              <div class="corner-accent-tl"></div>
-              <div class="corner-accent-br"></div>
-              <span>Request a Security Audit</span>
+          <div class="about-sidebar">
+            <a href="[ADD: https://github.com/your-username]" class="about-link" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>[ADD: GitHub username]</span>
             </a>
-            <a href="projects.html" class="btn-secondary" id="cta-case-btn">View Case Studies</a>
+
+            <a href="[ADD: https://linkedin.com/in/your-profile]" class="about-link" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <span>[ADD: LinkedIn display name]</span>
+            </a>
+
+            <a href="pgp.html" class="about-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>PGP Public Key</span>
+            </a>
+
+            <a href="/.well-known/security.txt" class="about-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>security.txt</span>
+            </a>
           </div>
+
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── FOOTER ── -->
-  <footer class="site-footer glass-panel-elite">
-    <div class="footer-inner">
-      <a href="index.html" class="nav-logo">
-        <div class="nav-logo-dot"></div>
-        <div class="nav-logo-text">MH.<span>SEC</span></div>
-      </a>
-      <div class="footer-copy">© 2026 Muhammad Hasnain &mdash; AI Security Master &bull; LLM Red Teaming &bull; Supply Chain Defense</div>
-      <div class="footer-links">
-        <a href="projects.html">Case Studies</a>
-        <a href="services.html">Services</a>
-        <a href="diagnostic.html">AI Assistant</a>
-        <a href="contact.html">Contact</a>
+
+    <!-- ══════════════════════════════════════════════════════
+         §10 FAQ
+         ══════════════════════════════════════════════════════ -->
+    <section id="faq" class="section" style="background:var(--clr-surface);">
+      <div class="container container-md">
+        <div class="animate-fade-up">
+          <div class="section-eyebrow">FAQ</div>
+          <h2 class="section-title">Common questions</h2>
+        </div>
+
+        <div class="faq-list animate-fade-up">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+              How is an LLM security audit different from a standard penetration test?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer" id="faq-1" role="region">
+              <p>Traditional penetration testing targets network, web application, and infrastructure attack surfaces. LLM security audits focus on model-layer vulnerabilities — prompt manipulation, context window exploitation, guardrail bypass, and AI-specific supply chain risks — that standard scanners and pentest methodologies do not detect. The two are complementary, not substitutes.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+              Do you need access to our model weights or source code?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer" id="faq-2" role="region">
+              <p>Not necessarily. The majority of high-value findings come from black-box testing of your application's API or user interface. Source code and system prompt access (grey-box) allow for more comprehensive coverage. The approach — black-box, grey-box, or white-box — is agreed during scoping based on your risk priorities and what your team is comfortable sharing.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+              How do you handle sensitive data encountered during testing?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer" id="faq-3" role="region">
+              <p>All data accessed during an engagement is treated under NDA. Test inputs are synthetic unless you explicitly provide sample data with written permission. At engagement close, all copies of your data are deleted and confirmed in writing as part of the closure process.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
+              What deliverables are included in a standard engagement?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer" id="faq-4" role="region">
+              <p>A written report with executive summary, technical findings (each with OWASP LLM reference, exact reproduction steps, severity rating, business impact, and remediation guidance), and a one-hour findings walkthrough session. A remediation review — retesting to verify fixes — is available as an add-on. See the <a href="sample-report.html" style="color:var(--clr-accent);">sample report</a> for the full structure.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-5">
+              Can you test systems that are not yet in production?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer" id="faq-5" role="region">
+              <p>Yes. Pre-production testing on staging environments is often more efficient — findings can be remediated before launch, which is cheaper than fixing them post-deployment. The same authorization and scoping process applies regardless of environment.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-6">
+              What is your responsible disclosure policy?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer" id="faq-6" role="region">
+              <p>For vulnerabilities discovered in third-party products during an engagement, I follow coordinated disclosure: notify the vendor privately, allow a reasonable remediation window (typically 90 days), then publish a disclosure if no fix is issued. This applies only to out-of-scope third-party findings. In-scope findings go directly to you. Full policy at <a href="/.well-known/security.txt" style="color:var(--clr-accent);">security.txt</a>.</p>
+            </div>
+          </div>
+
+        </div>
       </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         §11 CONTACT
+         ══════════════════════════════════════════════════════ -->
+    <section id="contact" class="section">
+      <div class="container">
+
+        <!-- CTA band -->
+        <div class="cta-band animate-fade-up">
+          <p class="mono text-accent" style="font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:var(--space-3);">Start a conversation</p>
+          <h2 class="cta-band-title">Ready to test your AI system?</h2>
+          <p class="cta-band-desc">Describe what you are building or have deployed. I will confirm scope fit and respond within [ADD: your typical response time, e.g. "2 business days"].</p>
+        </div>
+
+        <div class="contact-layout animate-fade-up">
+
+          <!-- Form -->
+          <form class="contact-form" id="contact-form" novalidate>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="name">Name <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="text" id="name" name="name" required autocomplete="name" placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Work email <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="email" id="email" name="email" required autocomplete="email" placeholder="you@company.com">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="company">Company / Organization</label>
+              <input class="form-input" type="text" id="company" name="company" autocomplete="organization" placeholder="Optional">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="service">Type of engagement</label>
+              <select class="form-select" id="service" name="service">
+                <option value="" disabled selected>Select one</option>
+                <option value="llm-red-team">LLM Red Teaming &amp; Jailbreak Audit</option>
+                <option value="rag-audit">RAG Pipeline Vulnerability Audit</option>
+                <option value="supply-chain">AI Supply Chain &amp; Model Integrity</option>
+                <option value="agentic">Agentic AI &amp; MCP Security Review</option>
+                <option value="unsure">Not sure — need scoping advice</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">What are you testing? <span aria-hidden="true">*</span></label>
+              <textarea class="form-textarea" id="message" name="message" required rows="5"
+                placeholder="Briefly describe your AI system — the stack, what it does, and any specific concerns or previous findings. The more detail, the faster I can confirm whether we are a fit."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" id="submit-btn" style="justify-content:center;">
+              Send message
+            </button>
+
+            <div class="form-status" id="form-status" role="alert" aria-live="polite"></div>
+
+            <p class="mono" style="font-size:10px;color:var(--clr-subtle);line-height:1.6;">
+              Sent directly to me — no CRM, no marketing tools. For sensitive disclosures, use <a href="pgp.html" style="color:var(--clr-muted);text-decoration:underline;text-underline-offset:2px;">PGP encryption</a>.
+            </p>
+
+          </form>
+
+          <!-- Sidebar -->
+          <aside class="contact-info">
+            <h3 class="contact-info-title">Contact</h3>
+
+            <div class="contact-detail">
+              <span class="contact-detail-label">Response time</span>
+              <span class="contact-detail-value">[ADD: e.g. "Within 2 business days"]</span>
+            </div>
+
+            <div class="contact-detail">
+              <span class="contact-detail-label">NDA</span>
+              <span class="contact-detail-value">Available before first call, on request</span>
+            </div>
+
+            <div class="contact-detail">
+              <span class="contact-detail-label">Preferred contact</span>
+              <span class="contact-detail-value">
+                <a href="[ADD: mailto:your@email.com]">[ADD: email or "via this form"]</a>
+              </span>
+            </div>
+
+            <div class="contact-detail">
+              <span class="contact-detail-label">Encrypted contact</span>
+              <span class="contact-detail-value"><a href="pgp.html">PGP public key →</a></span>
+            </div>
+
+            <div class="contact-detail">
+              <span class="contact-detail-label">Availability</span>
+              <span class="contact-detail-value">[ADD: e.g. "Open to new engagements from January 2027" or "Currently fully booked — contact for waitlist"]</span>
+            </div>
+
+            <hr class="divider" style="margin-block:var(--space-2);">
+
+            <div class="contact-detail">
+              <span class="contact-detail-label">Public profiles</span>
+              <div class="contact-detail-value" style="display:flex;flex-direction:column;gap:var(--space-2);margin-top:var(--space-1);">
+                <a href="[ADD: GitHub URL]" target="_blank" rel="noopener noreferrer">GitHub — [ADD: username]</a>
+                <a href="[ADD: LinkedIn URL]" target="_blank" rel="noopener noreferrer">LinkedIn — [ADD: name]</a>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="/" class="nav-logo" aria-label="Muhammad Hasnain — Home">
+        <div class="nav-logo-mark" aria-hidden="true">MH</div>
+        <span class="nav-logo-text">Muhammad <span>Hasnain</span></span>
+      </a>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="research.html">Research</a>
+        <a href="sample-report.html">Sample Report</a>
+        <a href="pgp.html">PGP</a>
+        <a href="/.well-known/security.txt">Security</a>
+      </nav>
+
+      <p class="footer-copy">© 2026 Muhammad Hasnain. Offensive AI security research.</p>
     </div>
   </footer>
 
-  <script>
-    // Intersection Observer for scroll animations
-    const animatedEls = document.querySelectorAll('.animate-fade-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = 'running';
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    animatedEls.forEach(el => {
-      el.style.animationPlayState = 'paused';
-      observer.observe(el);
-    });
-
-    // Counter animation for stats
-    function animateCounter(el, target, suffix) {
-      const isPercent = suffix === '%';
-      const isDecimal = target.toString().includes('.');
-      let start = 0;
-      const duration = 2000;
-      const step = (timestamp) => {
-        if (!start) start = timestamp;
-        const progress = Math.min((timestamp - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const val = isDecimal
-          ? (eased * parseFloat(target)).toFixed(1)
-          : Math.round(eased * parseFloat(target));
-        el.textContent = val + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    }
-
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          if (id === 'stat-audits') animateCounter(entry.target, 15, '+');
-          if (id === 'stat-vulns')  animateCounter(entry.target, 200, '+');
-          if (id === 'stat-rate')   animateCounter(entry.target, 99.7, '%');
-          if (id === 'stat-exp')    animateCounter(entry.target, 5, '+');
-          statsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    ['stat-audits','stat-vulns','stat-rate','stat-exp'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) statsObserver.observe(el);
-    });
-  </script>
-
+  <script src="main.js"></script>
 </body>
 </html>

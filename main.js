@@ -1,149 +1,189 @@
-/* ==========================================================================
-   Crypto Master — Professional Multi-Market Trader Portfolio
-   JavaScript Logic & Interactivity
-   ========================================================================== */
+/* ============================================================
+   main.js — Muhammad Hasnain Portfolio
+   v2.0 — clean rewrite
+   ============================================================
 
+   CONFIGURATION
+   ─────────────
+   CONTACT_ENDPOINT: replace YOUR_FORMSPREE_ID with your form ID.
+   Steps:
+     1. Create a free account at https://formspree.io
+     2. Click "New Form", give it a name
+     3. Copy the form ID (the part after /f/ in the endpoint URL)
+     4. Paste it below
+
+   Alternatively, to use the existing FastAPI /api/contact endpoint:
+     const CONTACT_ENDPOINT = '/api/contact';
+   ============================================================ */
+
+'use strict';
+
+// ── [ADD: replace YOUR_FORMSPREE_ID with your actual Formspree form ID]
+const CONTACT_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
+
+// ─────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Menu Toggler
-  const mobileToggle = document.getElementById('mobile-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  const navLinks = document.querySelectorAll('.nav-link');
+  initMobileNav();
+  initActiveNav();
+  initFAQ();
+  initContactForm();
+});
 
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      const isExpanded = navMenu.classList.contains('active');
-      mobileToggle.setAttribute('aria-expanded', isExpanded);
-      mobileToggle.innerHTML = isExpanded ? '✕' : '☰';
-    });
+// ─────────────────────────────────────────────────────────────
+// MOBILE NAV
+// ─────────────────────────────────────────────────────────────
+function initMobileNav() {
+  const btn  = document.querySelector('.mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (!btn || !menu) return;
 
-    // Close menu when a link is clicked
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileToggle.innerHTML = '☰';
-      });
-    });
+  function open() {
+    menu.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close navigation menu');
+    document.body.style.overflow = 'hidden';
   }
 
-  // 2. Active Navigation Link on Scroll
-  const sections = document.querySelectorAll('section[id]');
-  
-  function highlightNavOnScroll() {
-    const scrollY = window.pageYOffset;
-    
-    sections.forEach(current => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120;
-      const sectionId = current.getAttribute('id');
-      
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        document.querySelector(`.nav-link[href*="${sectionId}"]`)?.classList.add('active');
-      } else {
-        document.querySelector(`.nav-link[href*="${sectionId}"]`)?.classList.remove('active');
-      }
-    });
+  function close() {
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open navigation menu');
+    document.body.style.overflow = '';
   }
 
-  window.addEventListener('scroll', highlightNavOnScroll);
-
-  // 3. Scroll Reveal Animations (IntersectionObserver)
-  const revealElements = document.querySelectorAll('.market-card, .stat-card, .pillar-card, .achievement-card');
-  
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const revealOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  revealElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(25px)';
-    el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-    revealOnScroll.observe(el);
+  btn.addEventListener('click', () => {
+    menu.classList.contains('open') ? close() : open();
   });
 
-  // 4. Interactive Contact Form Submission Handler
-  const contactForm = document.getElementById('contact-form');
-  const formStatus = document.getElementById('form-status');
+  // Close on link click
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', close));
 
-  if (contactForm && formStatus) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn.innerHTML;
-      
-      // Loading state
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin">
-          <circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="10"></circle>
-        </svg>
-        Sending...
-      `;
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!btn.contains(e.target) && !menu.contains(e.target)) close();
+  });
 
-      // Simulate form submission delay
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalBtnText;
-        
-        contactForm.reset();
-        formStatus.className = 'form-status success';
-        formStatus.textContent = '✓ Thank you! Your message has been sent successfully. I will get back to you shortly.';
-        
-        setTimeout(() => {
-          formStatus.style.display = 'none';
-        }, 6000);
-      }, 1200);
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) close();
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
+// ACTIVE NAV ON SCROLL  (IntersectionObserver)
+// ─────────────────────────────────────────────────────────────
+function initActiveNav() {
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  if (!navLinks.length) return;
+
+  const sections = Array.from(navLinks)
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  if (!sections.length) return;
+
+  function setActive(id) {
+    navLinks.forEach(link => {
+      const matches = link.getAttribute('href') === `#${id}`;
+      link.classList.toggle('active', matches);
+      if (matches) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
     });
   }
 
-  // 5. Live Market Price Simulation (Adds dynamic feel to ticker)
-  const tickerItems = [
-    { symbol: 'BTC/USD', priceEl: 'btc-price', changeEl: 'btc-change', basePrice: 94250.00, isCrypto: true },
-    { symbol: 'ETH/USD', priceEl: 'eth-price', changeEl: 'eth-change', basePrice: 3480.50, isCrypto: true },
-    { symbol: 'EUR/USD', priceEl: 'eur-price', changeEl: 'eur-change', basePrice: 1.0845, isCrypto: false },
-    { symbol: 'S&P 500', priceEl: 'sp-price', changeEl: 'sp-change', basePrice: 5980.20, isCrypto: false },
-    { symbol: 'GOLD', priceEl: 'gold-price', changeEl: 'gold-change', basePrice: 2745.10, isCrypto: false }
-  ];
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    },
+    {
+      rootMargin: '-15% 0px -75% 0px',
+      threshold: 0,
+    }
+  );
 
-  function updateTickerSimulation() {
-    const item = tickerItems[Math.floor(Math.random() * tickerItems.length)];
-    const priceNode = document.getElementById(item.priceEl);
-    const changeNode = document.getElementById(item.changeEl);
-    
-    if (!priceNode || !changeNode) return;
+  sections.forEach(s => observer.observe(s));
+}
 
-    // Small random fluctuation (-0.15% to +0.15%)
-    const deltaPercent = (Math.random() * 0.3 - 0.15);
-    const currentPrice = parseFloat(priceNode.textContent.replace(/[^0-9.]/g, ''));
-    const newPrice = currentPrice * (1 + deltaPercent / 100);
-    
-    const formattedPrice = item.isCrypto && newPrice > 1000 
-      ? '$' + newPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-      : (item.symbol.includes('/') && !item.isCrypto
-          ? newPrice.toFixed(4)
-          : '$' + newPrice.toFixed(2));
+// ─────────────────────────────────────────────────────────────
+// FAQ ACCORDION
+// ─────────────────────────────────────────────────────────────
+function initFAQ() {
+  const questions = document.querySelectorAll('.faq-question');
+  if (!questions.length) return;
 
-    priceNode.textContent = formattedPrice;
+  questions.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      const answerId   = btn.getAttribute('aria-controls');
+      const answer     = document.getElementById(answerId);
+      if (!answer) return;
 
-    // Pulse effect
-    priceNode.style.color = deltaPercent >= 0 ? 'var(--bull-green)' : 'var(--bear-red)';
-    setTimeout(() => {
-      priceNode.style.color = 'var(--text-secondary)';
-    }, 800);
-  }
+      // Collapse all others
+      questions.forEach(other => {
+        if (other === btn) return;
+        other.setAttribute('aria-expanded', 'false');
+        const id = other.getAttribute('aria-controls');
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('open');
+      });
 
-  // Update ticker every 3.5 seconds
-  setInterval(updateTickerSimulation, 3500);
-});
+      // Toggle this one
+      const next = !isExpanded;
+      btn.setAttribute('aria-expanded', String(next));
+      answer.classList.toggle('open', next);
+    });
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
+// CONTACT FORM
+// ─────────────────────────────────────────────────────────────
+function initContactForm() {
+  const form      = document.getElementById('contact-form');
+  const statusEl  = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-btn');
+  if (!form || !statusEl || !submitBtn) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    submitBtn.disabled    = true;
+    submitBtn.textContent = 'Sending…';
+    statusEl.className    = 'form-status';
+    statusEl.textContent  = '';
+
+    const payload = Object.fromEntries(new FormData(form));
+
+    try {
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        statusEl.className   = 'form-status success';
+        statusEl.textContent = 'Message sent. I will respond within the timeframe noted above.';
+        form.reset();
+      } else {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || `HTTP ${res.status}`);
+      }
+    } catch (err) {
+      console.error('[contact-form]', err);
+      statusEl.className   = 'form-status error';
+      statusEl.textContent = 'Could not send your message. Please try again or use PGP email.';
+    } finally {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = 'Send message';
+      statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  });
+}
